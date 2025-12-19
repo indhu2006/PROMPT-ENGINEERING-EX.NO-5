@@ -33,6 +33,29 @@ Analysis of how prompt clarity impacts the quality, accuracy, and depth of ChatG
 Summary of findings with insights on how to structure prompts for optimal results when using ChatGPT.
 
 
-# OUTPUT
+# OUTPUT:
+Prompting Patterns <br> 
+Common patterns include zero-shot (direct task without examples), few-shot (with input-output examples), and chain-of-thought (CoT, step-by-step reasoning). Structured prompts like few-shot CoT outperform zero-shot by 5-15% in accuracy on reasoning tasks, as they provide context and guide logical paths. Negative prompting avoids unwanted outputs, while instruction-based patterns break tasks into clear steps for precision. <br>
+​
 
-# RESULT: The prompt for the above said problem executed successfully
+Test Scenario 1: Classification <br> 
+Unstructured (broad): Classify this: The excretory system removes waste. <br>​
+Structured (few-shot CoT): Examples: Q: Does kidney filter blood? A: Yes, step 1: Identify organ function, step 2: Match to passage. Now classify: The excretory system removes waste. <br>​
+Structured yields higher F1 scores by leveraging examples for context, reducing errors in ambiguous cases. <br>​
+
+Test Scenario 2: Reasoning <br> 
+Unstructured: Solve: If A > B and B > C, is A > C?​ <br>
+Structured (zero-shot CoT): Solve step by step: If A > B and B > C, is A > C? <br>​
+CoT boosts accuracy without examples, as models generate internal logic better than broad queries. <br>
+
+| Pattern           | Quality (Depth) | Accuracy | Best For         | Limitation arxiv+1​                                     |
+| ----------------- | --------------- | -------- | ---------------- | -------------------------------------------------------|
+| Zero-shot         | Low             | 60-70%   | Simple facts     | Lacks context, poor on complex tasks                   |
+| Few-shot          | Medium-High     | 75-85%   | Classification   | Needs good examples, can confuse with poor ones vellum​ |
+| CoT               | High            | 80-90%   | Reasoning        | Verbose outputs pmc.ncbi.nlm.nih​                       |
+| Instruction-based | High            | 85%+     | Structured tasks | Requires precise wording linkedin​                      |
+
+
+
+# RESULT: 
+The prompt for the above said problem executed successfully
